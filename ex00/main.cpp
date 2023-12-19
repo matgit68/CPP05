@@ -10,6 +10,7 @@ int main() {
 	b.incrementGrade();
 	std::cout << b << std::endl;
 	b.incrementGrade();
+	b.incrementGrade();
 	std::cout << b << std::endl;
 	std::cout << b3 << std::endl;
 	b3.decrementGrade();
@@ -17,8 +18,8 @@ int main() {
 	b3.decrementGrade();
 	std::cout << b3 << std::endl;
 
-	Bureaucrat b4("Min", -1);
-	Bureaucrat b5("Max", 54242);
+	try {Bureaucrat b4("Min", -1);} catch (Bureaucrat::GradeTooHighException &e) {}
+	try{Bureaucrat b5("Max", 54242);} catch (Bureaucrat::GradeTooLowException &e) {}
 
 	return 0;
 }
