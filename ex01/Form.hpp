@@ -28,6 +28,7 @@ public:
 
 	void beSigned(const Bureaucrat &b);
 
+
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char* what() const throw() { return RED "Grade too high" RESET; }

@@ -35,14 +35,19 @@ std::string AForm::getName() const { return (name); }
 int AForm::getToSign() const { return (toSign); }
 int AForm::getToExec() const { return (toExec); }
 bool AForm::getIsSigned() const { return (isSigned); }
+void AForm::setSigned(bool s) { isSigned = s; }
 
 void AForm::beSigned(const Bureaucrat &b) {
+	if (isSigned) {
+		std::cout << "Form already signed" << std::endl;
+		return ;
+	}
 	if (toSign < b.getGrade()) throw GradeTooLowException();
 	isSigned = true;
 }
 
 std::ostream &operator<<(std::ostream &o, const AForm &f) {
     o << f.getName() << ", grade required to sign (" << f.getToSign();
-	o << "), to execute (" << f.getToExec() << "). Signed : " << f.getIsSigned();
+	o << "), to execute (" << f.getToExec() << "). Signed : " << std::boolalpha << f.getIsSigned();
     return o;
 }

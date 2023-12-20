@@ -27,12 +27,12 @@ public:
 
 	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char* what() const throw() { return RED "Already at highest grade" RESET; }
+		virtual const char* what() const throw() { return RED "Grade too high" RESET; }
 	};
 
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char* what() const throw() { return RED "Already at lowest grade" RESET; }
+		virtual const char* what() const throw() { return RED "Grade too low" RESET; }
 	};
 
 };

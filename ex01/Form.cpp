@@ -18,9 +18,7 @@ Form::Form(std::string n, int gts, int gte) : name(n), toSign(gts), toExec(gte),
 	std::cout << *this << std::endl;
 }
 
-Form::Form(Form const &copy) :	name(copy.name),
-								toSign(copy.toSign),
-								toExec(copy.toExec) {
+Form::Form(Form const &copy) :	name(copy.name), toSign(copy.toSign), toExec(copy.toExec) {
 	std::cout << "[Form] Copy constructor called" << std::endl;
 	std::cout << *this << std::endl;
 }
@@ -34,7 +32,6 @@ Form& Form::operator=(const Form &copy) {
 }
 
 std::string Form::getName() const { return (name); }
-
 int Form::getToSign() const { return (toSign); }
 int Form::getToExec() const { return (toExec); }
 bool Form::getIsSigned() const { return (isSigned); }

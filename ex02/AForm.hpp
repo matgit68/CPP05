@@ -17,7 +17,7 @@ public:
 	AForm(std::string &n, int &gts, int &gte);
 	AForm(std::string n, int gts, int gte);
 	AForm(AForm const &f);
-	~AForm();
+	virtual ~AForm();
 
 	AForm &operator=(AForm const &ref);
 
@@ -25,8 +25,9 @@ public:
 	int getToSign() const;
 	int getToExec() const;
 	bool getIsSigned() const;
+	void setSigned(bool s);
 
-	virtual void beSigned(Bureaucrat const &b) = 0;
+	virtual void beSigned(Bureaucrat const &b);
 	virtual void execute(Bureaucrat const &executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
@@ -37,6 +38,11 @@ public:
 	class GradeTooLowException : public std::exception {
 	public:
 		virtual const char* what() const throw() { return RED "Grade too low" RESET; }
+	};
+
+	class FormNotSigned : public std::exception {
+	public:
+		virtual const char* what() const throw() { return RED "Formulary was not signed" RESET; }
 	};
 };
 
