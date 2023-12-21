@@ -21,10 +21,6 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &f
     return *this;
 }
 
-RobotomyRequestForm* RobotomyRequestForm::clone() const {
-    return new RobotomyRequestForm(target);
-}
-
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     if (!getIsSigned()) throw AForm::FormNotSigned();
     if (executor.getGrade() > getToExec()) throw AForm::GradeTooLowException();

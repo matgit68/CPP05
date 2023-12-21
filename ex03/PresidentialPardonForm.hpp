@@ -15,8 +15,6 @@ public:
     PresidentialPardonForm &operator=(PresidentialPardonForm const &copy);
 
 	void execute(Bureaucrat const &executor) const;
-	PresidentialPardonForm* clone() const;
-
 };
 
 #endif

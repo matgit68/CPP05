@@ -15,8 +15,6 @@ public:
     RobotomyRequestForm &operator=(RobotomyRequestForm const &copy);
 
 	void execute(Bureaucrat const &executor) const;
-	RobotomyRequestForm* clone() const;
-
 };
 
 #endif

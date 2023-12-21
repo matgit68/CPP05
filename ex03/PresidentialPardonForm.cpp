@@ -24,7 +24,3 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
     if (executor.getGrade() > getToExec()) throw AForm::GradeTooLowException();
     std::cout << executor.getName() << " execute " << this->getName() << " : " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
-
-PresidentialPardonForm* PresidentialPardonForm::clone() const {
-    return new PresidentialPardonForm(target);
-}

@@ -17,8 +17,6 @@ public:
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &copy);
 
 	void execute(Bureaucrat const &executor) const;
-	ShrubberyCreationForm* clone() const;
-
 };
 
 #endif

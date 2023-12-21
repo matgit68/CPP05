@@ -17,24 +17,22 @@ Intern &Intern::operator=(Intern const &copy) {
 }
 
 AForm *Intern::makeForm( std::string name, std::string target ) {
-    int i = 0;
+    int j = -1;
     std::string formNames[] = {
         "robotomy request",
         "presidential pardon",
         "shrubbery creation"
     };
-    AForm *clone;
     forms[0] = new RobotomyRequestForm(target);
     forms[1] = new PresidentialPardonForm(target);
     forms[2] = new ShrubberyCreationForm(target);
-    for (; i < 3; i++) {
-        if (name == formNames[i]) {
-            std::cout << "Intern creates " << name << std::endl;
-            clone = (*forms)[i].clone();
-        }
-        delete forms[i];
+    for (int i = 0; i < 3; i++) {
+        if (name != formNames[i])
+            delete forms[i];
+        else
+            j = i;
     }
-    if (i > 3) throw Intern::FormNotCreated();
-    else
-        return clone;
+    if (j == -1) throw Intern::FormNotCreated();
+    std::cout << "Intern creates " << name << std::endl;
+    return forms[j];
 }

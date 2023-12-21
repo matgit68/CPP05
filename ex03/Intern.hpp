@@ -22,7 +22,6 @@ public:
 	public:
 		virtual const char* what() const throw() { return RED "No form like this" RESET; }
 	};
-
 };
 
 #endif

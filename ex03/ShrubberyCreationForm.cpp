@@ -19,10 +19,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm co
     return *this;
 }
 
-ShrubberyCreationForm* ShrubberyCreationForm::clone() const {
-    return new ShrubberyCreationForm(target);
-}
-
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     if (!getIsSigned()) throw AForm::FormNotSigned();
     if (executor.getGrade() > getToExec()) throw AForm::GradeTooLowException();
